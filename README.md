@@ -28,3 +28,8 @@ As soon as in running mode the status indicator is lit with its brightness relat
 [Schematics](http://i.imgur.com/oKm0ZgJ.png)
 
 ## Prototype
+
+
+## Dependencies
+
+* [NewPIng Library](http://playground.arduino.cc/Code/NewPing)
