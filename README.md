@@ -25,6 +25,12 @@ When the device is turned on It emmits a sound and the status indicator is blink
 
 As soon as in running mode the status indicator is lit with its brightness relative to the height of what is above it. as soon as something goes below the reference level the buzzer emmits a sound and the level indicator is turned on.
 
+## Power consumption
+
+Based on this design using a LED for Power indicator and a laser diode for level indicator; the power usage is 20mA on running mode without detecting an object and 42mA while detecting an object below the reference level.
+
+So with an Alcaline 9V battery you should be able to use the device for 28 hours on running mode.
+
 ## Schematics
 [Schematics](http://i.imgur.com/oKm0ZgJ.png)
 
