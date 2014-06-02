@@ -29,6 +29,9 @@ As soon as in running mode the status indicator is lit with its brightness relat
 
 ## Prototype
 
+![](https://raw.githubusercontent.com/alexisisaac/SquatCheck/master/img/20140602_135238-2.jpg)
+
+![](https://raw.githubusercontent.com/alexisisaac/SquatCheck/master/img/20140602_135401-2.jpg)
 
 ## Dependencies
 
