@@ -23,7 +23,7 @@ For visual communication I choose to have a [button with a LED](http://www.adafr
 ## Usage
 When the device is turned on It emmits a sound and the status indicator is blinking. It waits for the user to squat 1 time and wait 5 seconds as low as they want to go on other squats (Usually the setup is done without added weights). When the device detects something not moving between 10 and 150cm above it, it switches to running mode with the level of the object above it as the reverence level.
 
-As soon as in running mode the status indicator is lit with its brightness relative to the height of what is above it. as soon as something goes below the reference level the buzzer emmits a sound and the level indicator is turned on.
+As soon as in running mode the status indicator is lit with its brightness relative to the height of what is above it. When you squat lower the buzzer click faser and the level indicator blinks faster. As soon as something goes below the reference level the buzzer emmits a sound and the level indicator is turned on.
 
 ## Power consumption
 
