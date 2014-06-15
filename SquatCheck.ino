@@ -18,11 +18,13 @@ enum State {
 #define TONE_LOW 3
 #define TONE_MID 2
 #define TONE_HIGH 1
+#define TONE_CLICK 0
 
 State state;
 
 unsigned int ref;
 unsigned int count;
+unsigned long lastClick;
 boolean previousPosition;
 
 void setup(){
@@ -37,9 +39,10 @@ void setup(){
   beep(TONE_HIGH,80);
   ref = 0;
   count = 0;
+  lastClick = 0;
 }
 void loop(){
-  int cm = sonar.convert_cm(sonar.ping_median());
+  float cm = sonar.convert_mm(sonar.ping_median())/10.0f;
   switch(state){
       case STATE_SETUP:
         digitalWrite(POWER_LED, (millis()/100)%2!=0);
@@ -62,9 +65,21 @@ void loop(){
         break;
       case STATE_LOOP:
         analogWrite(POWER_LED, map(cm, 0, 200, 0, 255));
-        digitalWrite(LASER, cm<ref&&cm>2);
-        if((cm<ref&&cm>2) && !previousPosition){
-            beep(TONE_MID,120);  
+        if(cm<ref&&cm>2){
+          digitalWrite(LASER, HIGH);
+          if(!previousPosition){
+              beep(TONE_MID,120);  
+          }
+        } else {
+          
+          if(cm>ref && (cm-ref)<50 && millis()>lastClick+(cm-ref)*20){
+              lastClick = millis();
+              digitalWrite(LASER, HIGH);
+              beep(TONE_CLICK,0);
+              delay(10);
+              digitalWrite(LASER, LOW);
+          }       
+          digitalWrite(LASER, LOW);
         }
         previousPosition = cm<ref&&cm>2;
         break;
@@ -76,12 +91,18 @@ void loop(){
 
 void beep(unsigned int tone, unsigned long time){
  time = time+millis();
-  while(millis()<time){
+  if (tone!=TONE_CLICK){
+    while(millis()<time){
+      digitalWrite(8, HIGH);
+      delay(tone);
+      digitalWrite(8, LOW);
+      delay(tone);
+    }
+  } else {
     digitalWrite(8, HIGH);
-    delay(tone);
+    delay(10);
     digitalWrite(8, LOW);
-    delay(tone);
-  } 
+  }
 }
 
 
