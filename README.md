@@ -3,6 +3,8 @@ SquatCheck
 
 An adruino based tool to check if a person performing a squat exercise goes low enough.
 
+[Video demo](http://youtu.be/JeSIeYAF5Io)
+
 ## Parts
 1 Arduino pro mini (or UNO but it is bigger)
 1 HC-SR04 Ultrasound ping sensor
